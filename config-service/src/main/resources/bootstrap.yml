@@ -1,11 +1,18 @@
 server:
   port: 8081
-
+  error:
+    include-message: always
+    include-binding-errors: always
+logging:
+  level:
+    web=DEBUG:
 spring:
   cloud:
     config:
       server:
+        accept-empty: false
         git:
+          default-level: develop
           uri: https://github.com/Arme94/ms-course.git
           searchPaths: config-data
           username: ${GIT_USER}
